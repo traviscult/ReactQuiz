@@ -41,6 +41,12 @@ export default function App() {
   ];
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
+
+  const handleAnswerButtonClick = () => {
+    const nextQuestion = currentQuestion + 1;
+    setCurrentQuestion(nextQuestion);
+  };
+
   return (
     <div className="app">
       {/* HINT: replace "false" with logic to display the 
@@ -61,7 +67,9 @@ export default function App() {
           </div>
           <div className="answer-section">
             {questions[currentQuestion].answerOptions.map((answerOptions) => (
-              <button>{answerOptions.answerText}</button>
+              <button onClick={handleAnswerButtonClick}>
+                {answerOptions.answerText}
+              </button>
             ))}
           </div>
         </>
