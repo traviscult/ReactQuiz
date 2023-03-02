@@ -40,6 +40,7 @@ export default function App() {
     },
   ];
 
+  const [currentQuestion, setCurrentQuestion] = useState(0);
   return (
     <div className="app">
       {/* HINT: replace "false" with logic to display the 
@@ -54,10 +55,12 @@ export default function App() {
             <div className="question-count">
               <span>Question 1</span>/{questions.length}
             </div>
-            <div className="question-text">{questions[0].questionText}</div>
+            <div className="question-text">
+              {questions[currentQuestion].questionText}
+            </div>
           </div>
           <div className="answer-section">
-            {questions[0].answerOptions.map((answerOptions) => (
+            {questions[currentQuestion].answerOptions.map((answerOptions) => (
               <button>{answerOptions.answerText}</button>
             ))}
           </div>
